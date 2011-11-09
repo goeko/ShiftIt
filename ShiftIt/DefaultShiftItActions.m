@@ -26,7 +26,7 @@ NSRect ShiftIt_Left(NSSize screenSize, NSRect windowRect) {
 	r.origin.x = 0;
 	r.origin.y = 0;
 	
-	r.size.width = screenSize.width / 2;
+	r.size.width = 1024;  //screenSize.width / 2;
 	r.size.height = screenSize.height;
 	
 	return r;
@@ -35,10 +35,10 @@ NSRect ShiftIt_Left(NSSize screenSize, NSRect windowRect) {
 NSRect ShiftIt_Right(NSSize screenSize, NSRect windowRect) {
 	NSRect r;
 	
-	r.origin.x = screenSize.width/2;
+	r.origin.x = screenSize.width-(screenSize.width-1024); //screenSize.width/2;
 	r.origin.y = 0;
 	
-	r.size.width = screenSize.width / 2;
+	r.size.width = 1024;  //screenSize.width / 2;
 	r.size.height = screenSize.height;
 
 	return r;
