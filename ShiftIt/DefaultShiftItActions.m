@@ -29,21 +29,47 @@ const SimpleShiftItActionBlock shiftItLeft = ^NSRect(NSRect windowRect,NSSize sc
 	r.origin.x = 0;
 	r.origin.y = 0;
 	
+//    if (screenSize.width > (1024*2)) {
+//       r.origin.x = 0; 
+//    }
+    
+    if (screenSize.width > (1024*1.5)) {
+		r.size.width = 1024;
+	} else {
+		r.size.width = screenSize.width / 2;
+	}
+	r.size.height = screenSize.height;
+    
+    /*
 	r.size.width = screenSize.width / 2;
 	r.size.height = screenSize.height;
-	
+	*/
 	return r;    
 };
 
 const SimpleShiftItActionBlock shiftItRight = ^NSRect(NSRect windowRect,NSSize screenSize) {
 	NSRect r;
 	
+    if (screenSize.width > (1024*1.5)) {
+		r.origin.x = screenSize.width - 1024;
+		r.size.width = 1024;
+	} else {
+		r.origin.x = screenSize.width / 2;
+		r.size.width = screenSize.width / 2;
+	}
+    if (screenSize.width > (1024*2)) {
+		r.origin.x = 896;
+    }
+	r.origin.y = 0;
+	r.size.height = screenSize.height;
+    
+    /*
 	r.origin.x = screenSize.width/2;
 	r.origin.y = 0;
 	
 	r.size.width = screenSize.width / 2;
 	r.size.height = screenSize.height;
-	
+	*/
 	return r;
 };
 
@@ -79,6 +105,13 @@ const SimpleShiftItActionBlock shiftItTopLeft = ^NSRect(NSRect windowRect,NSSize
 	
 	r.size.width = screenSize.width / 2;
 	r.size.height = screenSize.height / 2;
+    
+    if (screenSize.width > (1024*2)) {
+        r.origin.x = 0;
+        
+        r.size.width = 1024;
+        r.size.height = screenSize.height;
+    }
 	
 	return r;
 };
@@ -91,6 +124,13 @@ const SimpleShiftItActionBlock shiftItTopRight = ^NSRect(NSRect windowRect,NSSiz
 	
 	r.size.width = screenSize.width / 2;
 	r.size.height = screenSize.height / 2;
+    
+    if (screenSize.width > (1024*2)) {
+        r.origin.x = 896;
+        
+        r.size.width = 1024;
+        r.size.height = screenSize.height;
+    }
 	
 	return r;
 };
@@ -103,7 +143,15 @@ const SimpleShiftItActionBlock shiftItBottomLeft = ^NSRect(NSRect windowRect,NSS
 	
 	r.size.width = screenSize.width / 2;
 	r.size.height = screenSize.height / 2;
-	
+
+    if (screenSize.width > (1024*2)) {
+        r.origin.x = 1920;
+        r.origin.y = 0;
+        
+        r.size.width = 1024;
+        r.size.height = screenSize.height;
+    }
+    
 	return r;
 };
 
@@ -115,7 +163,15 @@ const SimpleShiftItActionBlock shiftItBottomRight = ^NSRect(NSRect windowRect,NS
 	
 	r.size.width = screenSize.width / 2;
 	r.size.height = screenSize.height / 2;
-	
+
+    if (screenSize.width > (1024*2)) {
+        r.origin.x = screenSize.width - 1024;
+        r.origin.y = 0;
+        
+        r.size.width = 1024;
+        r.size.height = screenSize.height;
+    }
+    
 	return r;
 };
 
@@ -138,6 +194,11 @@ const SimpleShiftItActionBlock shiftItCenter = ^NSRect(NSRect windowRect,NSSize 
 	r.origin.y = (screenSize.height / 2)-(windowRect.size.height / 2);	
 	
 	r.size = windowRect.size;
+    
+    if (screenSize.width > (1024*2)) {
+        r.origin.x = (screenSize.width / 4)-(windowRect.size.width / 2);
+        r.origin.y = (screenSize.height / 2)-(windowRect.size.height / 2);
+    }
 	
 	return r;
 };
